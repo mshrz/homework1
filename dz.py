@@ -1,26 +1,11 @@
-  
-def power(a, b):
-    result = 1
-    while b:
-        if b % 2 == 0:
-            b //= 2
-            a *= a
-        else:
-            result *= a
-            b -= 1
-    return result
+x = int(input("Введите положительное целое число: "))
+n = int(input("Введите степень: "))
 
+xn = x 
+i = 0
 
-def root(a, n):
-    assert n >= 2
-    if n == 2:
-        return a
-    else:
-        b = n // 2 + 1
-        c = power(a, 1 / b)
-        d = root(c, n - b) + root(c, b)
-        return d
+while i < n:
+    xn -= (xn*xn - x)/(n*xn)
+    i += 1
 
-a = int(input("Введите положительное целое число: "))
-n = int(input("Введите степень: ")) 
-print (root)(a,n)
+print(int(xn))
